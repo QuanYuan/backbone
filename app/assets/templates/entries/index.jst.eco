@@ -2,7 +2,8 @@
 
 
 <button id="draw">New Bookmark</button>
-
+<input type="text" id="filterField" value="Filtering">
+<button id="filterEntry">Filter</button>
 <div id="createBookmark">
 <h2> New Bookmark</h2>
 <form id="new_entry">
@@ -20,3 +21,4 @@
 </form>
 </div>
 <ul id="entries"></ul>
+<ul id="filterResults"></ul>

@@ -7,6 +7,7 @@ class Raff.Views.EntriesIndex extends Backbone.View
     'click #draw': 'drawWinner'
     'click #deleteEntry':'deleteBookmark'
     'click #editEntry':'editBookmark'
+    'click #filterEntry':'filterBookmark'
 
   initialize: ->
     @collection.on('reset', @render, this)
@@ -22,6 +23,23 @@ class Raff.Views.EntriesIndex extends Backbone.View
     $('#createBookmark').hide()
 
     this
+
+
+  filterBookmark: (event) ->
+    event.preventDefault()
+    #console.log "click"
+    lookup=$('#filterField').val()
+    console.log lookup
+    results_name=@collection.where({name:lookup})
+    results_address=@collection.where({address:lookup})
+    results_tags=@collection.where({tags:lookup})
+    console.log results_address
+    if(!jQuery.isEmptyObject(results_address))
+     # $(@el).html(@template(entries: @collection))
+      view = new Raff.Views.Filter(collection:results_name)
+      $('#filterResults').append(view.render().el)
+
+
 
   deleteBookmark: (event) ->
     event.preventDefault()
