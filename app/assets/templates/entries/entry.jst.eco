@@ -1,3 +1,5 @@
 <%= @entry.get('name') %>
 <%= @entry.get('address') %>
 <%= @entry.get('tags') %>
+<button id="editEntry" name = <%= @entry.get('id') %> >Edit</button>
+<button id="deleteEntry" name = <%= @entry.get('id') %> >Delete</button>
