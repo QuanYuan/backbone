@@ -4,16 +4,27 @@ class Raff.Views.EntriesIndex extends Backbone.View
 
   events:
     'submit #new_entry': 'createEntry'
+    'click #draw': 'drawWinner'
 
   initialize: ->
     @collection.on('reset', @render, this)
     @collection.on('add', @appendEntry, this)
 
+
+
   render: ->
 
     $(@el).html(@template())
     @collection.each(@appendEntry)
+    $('#createBookmark').hide()
+
     this
+
+
+
+  drawWinner: (event) ->
+    event.preventDefault()
+    $('#createBookmark').show()
 
   createEntry: (event) ->
     event.preventDefault()
@@ -24,6 +35,7 @@ class Raff.Views.EntriesIndex extends Backbone.View
       wait:true
       success: -> $('#new_entry')[0].reset()
       error: @handleError
+    $('#createBookmark').hide()
 
 
   appendEntry: (entry) ->

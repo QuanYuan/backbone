@@ -1,8 +1,12 @@
 <h1>Stored Bookmarks</h1>
 
 
+<button id="draw">New Bookmark</button>
 
+<div id="createBookmark">
+<h2> New Bookmark</h2>
 <form id="new_entry">
+
  <ul>
   Name
   <input type="text" name="name" id="new_entry_name"> </ul>
@@ -14,5 +18,5 @@
   <input type="text" name="tags" id="new_entry_tags"></ul>
   <input type="submit" value="Add">
 </form>
-
+</div>
 <ul id="entries"></ul>
